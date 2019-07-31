@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html>
+
+   <head>
+      <title>Timestamp Microservice</title>
+      <link rel="shortcut icon" href="https://cdn.hyperdev.com/us-east-1%3A52a203ff-088b-420f-81be-45bf559d01b1%2Ffavicon.ico" type="image/x-icon"/>
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+      <link href="style.css" rel="stylesheet" type="text/css">
+   </head>
+
+   <body>
+
+      <div class="container">
+        <h2>API Project: Timestamp Microservice</h2>
+        <h3>Welcome To My TimeStamp Project</h3>
+       
+      <div id = "help">
+        
+        <p>
+          Hey!!! If you're like me, then you're probably trying to understand just what the heck FFC wants us to do in this project. No worries. I'll dumb down the instructions here.  
+        </p>
+        <p>
+          They want you to set up your timestamp website on glitch, so go ahead and click on the glitch link they provide to you. 
+        </p>
+        <p>
+          Don't forget to copy over the files from the Github repository. The files are: server.js, package.json, views and public.  
+        </p>
+        <p>
+          Now you have to work within the server.js file. Your goal is to return a json object containing a date in the format specified {"unix": unix-date, "utc": utc-date}. 
+        </p>
+        <p>
+          The date in the json will be taken from the PATH. So if this is your website url: <p>https://tabby-concrete.glitch.me</p>
+        </p>
+        <p>
+          Then typing "https://tabby-concrete.glitch.me/api/timestamp/:date" into your web browser should cause your website to respond with an appropriate json. 
+        </p>
+        <p>
+          Note that ":date" can be empty, a string written in a format that can be coverted by new Date() to a date, or gibberish. Your code has to return the appropriate json based on what ":date" is.   
+        </p>
+        <p>
+         Big thanks to @DanCouper and @Husseyexplores for helping me understand Node JS and Express! 
+        </p>
+        <p>
+          Good luck!
+        </p>
+        </div>
+        
+        <h3>User Stories :</h3>
+        <ol class="user-stories">
+          
+          <li>The API endpoint is <code>GET [project_url]/api/timestamp/:date_string?</code></li>
+          <li>A date string is valid if can be successfully parsed by <code>new Date(date_string)</code>.<br>
+          Note that the unix timestamp needs to be an <strong>integer</strong> (not a string) specifying <strong>milliseconds</strong>.<br> 
+          In our test we will use date strings compliant with ISO-8601 (e.g. <code>"2016-11-20"</code>) because this will ensure an UTC timestamp.</li>
+          <li>If the date string is <strong>empty</strong> it should be equivalent to trigger <code>new Date()</code>, i.e. the service uses the current timestamp.</li>
+          <li>If the date string is <strong>valid</strong> the api returns a JSON having the structure<br><code>{"unix": &lt;date.getTime()&gt;, "utc" : &lt;date.toUTCString()&gt; }</code><br>
+            e.g. <code>{"unix": 1479663089000 ,"utc": "Sun, 20 Nov 2016 17:31:29 GMT"}</code></li>
+          <li>If the date string is <strong>invalid</strong> the api returns a JSON having the structure <br>
+              <code>{"unix": null, "utc" : "Invalid Date" }</code>. It is what you get from the date manipulation functions used above.
+          </li>
+        </ol>
+
+        <h3>Example Usage:</h3>
+        <ul>
+          <li><a href="https://tabby-concrete.glitch.me/api/hello" target = "_blank">Do not click this link</a></li>
+          <li><a href="https://tabby-concrete.glitch.me/api/timestamp/2019-07-31" target = "_blank">https://tabby-concrete.glitch.me/api/timestamp/2019-07-31</a></li>
+          <li><a href="https://tabby-concrete.glitch.me/api/timestamp/2015-12-25" target = "_blank">https://tabby-concrete.glitch.me/api/timestamp/1450137600</a></li>
+        </ul>
+
+        <h3>Example Output:</h3>
+        <p>
+          <code>{"unix":1451001600000, "utc":"Fri, 25 Dec 2015 00:00:00 GMT"}</code>
+        </p>
+      </div>
+      <div class="footer">
+        <p>
+          by <a href="http://www.freecodecamp.com/">freeCodeCamp</a> | <a href="https://hyperdev.com/#!/remix/FCC_API_timestamp_bplate/8338be2-a353-4892-8a0d-6295e4f12eb5">Click here to Remix</a>
+        </p>
+      </div>
+   </body>
+
+</html>
